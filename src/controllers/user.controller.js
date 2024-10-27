@@ -52,7 +52,12 @@ const postComment = async (req, res) => {
 
 const getUserInfo = async (req,res)=>{
   try {
-    let user = await prisma.nguoi_dung.findMany();
+    const userId = req.user.nguoi_dung_id;
+    const user = await prisma.nguoi_dung.findFirst({
+      where: {
+        nguoi_dung_id: Number(userId),
+      },
+    });
     if (!user) {
       return res.status(400).json({message:"User not found"});
     }
