@@ -18,8 +18,8 @@ let validateLogin = [
   body("mat_khau", "Please provide pass word").notEmpty(),
   body(
     "mat_khau",
-    "Password should be at least 8 chars and a maximum of 10 chars "
-  ).isLength({ min: 6, max: 10 }),
+    "Password should be at least 8 chars and a maximum of 20 chars "
+  ).isLength({ min: 6, max: 20 }),
 ];
 let validatePostComment = [
   body("nguoi_dung_id", "Please provide user id").notEmpty(),

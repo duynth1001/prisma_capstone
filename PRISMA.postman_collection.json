@@ -1,0 +1,339 @@
+{
+	"info": {
+		"_postman_id": "b34333dd-4271-45fd-8a6f-bdf980aee426",
+		"name": "PRISMA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38328815"
+	},
+	"item": [
+		{
+			"name": "POST COMMENT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET USER INFO",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/get-users-info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"get-users-info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET SAVED IMAGES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/saved-images/get-saved-images/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"saved-images",
+						"get-saved-images",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET IMAGES",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/images/get-images/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-images",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE IMAGE",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST IMAGES",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ten_hinh",
+							"value": "cat",
+							"type": "text"
+						},
+						{
+							"key": "mo_ta",
+							"value": "cute cat in the pic",
+							"type": "text"
+						},
+						{
+							"key": "hinhAnh",
+							"type": "file",
+							"src": "/C:/Users/duynt/Desktop/download.jpg"
+						},
+						{
+							"key": "nguoi_dung_id",
+							"value": "19",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/images/post-images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"post-images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT USER",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"duy11111111@gmail.com\",\r\n    \"mat_khau\":\"pass456\",\r\n    \"ho_ten\":\"duy\",\r\n    \"tuoi\":\"21\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\":\"jane.smith@example.com\",\r\n    \"mat_khau\":\"pass456\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All-images",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/images/get-all-images",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-all-images"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search-images",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7ImVtYWlsIjoiamFuZS5zbWl0aEBleGFtcGxlLmNvbSIsIm1hdF9raGF1IjoicGFzczQ1NiJ9LCJpYXQiOjE3MzA3MjM3NjYsImV4cCI6MTczMDcyNzM2Nn0.85NZB55XgulWVAQXhaDXmJ0jBdFGIhR8YmHvqemf8A8",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/images/get-search-images?ten_hinh=profile_pic_3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-search-images"
+					],
+					"query": [
+						{
+							"key": "ten_hinh",
+							"value": "profile_pic_3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Info-image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/images/get-info-image/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-info-image",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Comment-image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/images/get-comment-image/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-comment-image",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check-image-saved",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/images/get-check-image-saved/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"images",
+						"get-check-image-saved",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

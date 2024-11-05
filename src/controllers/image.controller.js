@@ -27,7 +27,6 @@ const getSearchImages = async (req, res) => {
       where: {
         ten_hinh: {
           contains: ten_hinh,
-          mode: "insensitive",
         },
       },
     });
@@ -38,21 +37,23 @@ const getSearchImages = async (req, res) => {
 
     return res.status(200).json(images);
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
 const getInfoImage = async (req, res) => {
   try {
     const { imageId } = req.params;
+    console.log(imageId);
     const image = await prisma.hinh_anh.findFirst({
       where: {
         hinh_id: Number(imageId),
       },
       include: {
-        nguoi_dung: true, 
+        nguoi_dung: true,
       },
     });
-
+    console.log(image);
     if (!image) {
       return res.status(404).json({ message: "Image not found!" });
     }
@@ -70,6 +71,7 @@ const getInfoImage = async (req, res) => {
       },
     });
   } catch (error) {
+    console.log(error);
     return res.status(500).json({ message: "Internal server error" });
   }
 };
@@ -202,5 +204,5 @@ export {
   getSearchImages,
   getInfoImage,
   getCommentImage,
-  getCheckImageSaved
+  getCheckImageSaved,
 };
