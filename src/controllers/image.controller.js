@@ -44,7 +44,6 @@ const getSearchImages = async (req, res) => {
 const getInfoImage = async (req, res) => {
   try {
     const { imageId } = req.params;
-    console.log(imageId);
     const image = await prisma.hinh_anh.findFirst({
       where: {
         hinh_id: Number(imageId),
@@ -53,7 +52,6 @@ const getInfoImage = async (req, res) => {
         nguoi_dung: true,
       },
     });
-    console.log(image);
     if (!image) {
       return res.status(404).json({ message: "Image not found!" });
     }

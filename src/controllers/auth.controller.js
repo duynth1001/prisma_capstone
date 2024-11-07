@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { body, validationResult } from "express-validator";
 import bcrypt from "bcryptjs";
-import { createRefToken, createToken } from "../config/jwt.js";
+import { createRefToken, createToken, createTokenAsyncKey } from "../config/jwt.js";
 const prisma = new PrismaClient();
 
 const postRegister = async (req, res) => {
@@ -58,20 +58,15 @@ const postLogin = async (req, res) => {
       return res.status(400).json({ message: "Email is wrong" });
     }
 
-    const checkPass = await prisma.nguoi_dung.findFirst({
-      where: {
-        mat_khau,
-      },
-    });
+    const checkPass = await bcrypt.compareSync(mat_khau,user.mat_khau);
     if (!checkPass) {
       return res.status(400).json({ message: "Password is wrong" });
     }
     // create Token
     let payload = {
-      email: email,
-      mat_khau: mat_khau,
+      userId:user.nguoi_dung_id
     };
-    let accessToken = createToken(payload);
+    let accessToken = createTokenAsyncKey(payload);
 
     return res.status(200).json({
       message: "Login successfully",

@@ -24,38 +24,38 @@ imageRoutes.get("/get-search-images",
 imageRoutes.get(
   "/get-info-image/:imageId",
   // middlewareTokenAsyncKey,
-  middlewareToken,
+  middlewareTokenAsyncKey,
   getInfoImage
 );
 //get-commnet-image
 imageRoutes.get(
   "/get-comment-image/:imageId",
-  middlewareToken,
+  middlewareTokenAsyncKey,
   getCommentImage
 );
 //get-check-image-saved
 imageRoutes.get(
   "/get-check-image-saved/:imageId",
-  middlewareToken,
+  middlewareTokenAsyncKey,
   getCheckImageSaved
 );
 
 //get image
 imageRoutes.get("/get-images/:userId",
-   middlewareToken, 
+  middlewareTokenAsyncKey, 
    getImages);
 
 //delete images
 imageRoutes.delete(
   "/delete-images/:imageId",
-  middlewareToken,
+  middlewareTokenAsyncKey,
   deleteImages
 );
 
 //post image
 imageRoutes.post(
   "/post-images",
-  middlewareToken,
+  middlewareTokenAsyncKey,
   uploadCloud.single("hinhAnh"),
   validatePostImages,
   postImages

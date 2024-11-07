@@ -63,9 +63,9 @@ export const verifyTokenAsyncKey = (token) => {
 // create middlware token
 export const middlewareToken = (req, res, next) => {
   let { token } = req.headers;
-  console.log(token)
   let checkToken = verifyToken(token);
-  console.log(checkToken)
+  
+  
   if (checkToken) {
     // nếu token hợp lệ => pass => qua router
     next();
@@ -76,7 +76,7 @@ export const middlewareToken = (req, res, next) => {
 
 export const middlewareTokenAsyncKey = (req, res, next) => {
   let { token } = req.headers;
-  console.log(token)
+  
   if (!token) {
     return res.status(401).json({ message: "Token is missing!" });
   }
